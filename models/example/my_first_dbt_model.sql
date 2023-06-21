@@ -8,7 +8,7 @@
 */
 
 {{ config(materialized='table') }}
-
+/*
 with source_data as (
 
     select 1 as id
@@ -18,7 +18,23 @@ with source_data as (
 )
 
 select *
-from source_data
+from source_data  */
+
+
+WITH source_data AS (
+  SELECT
+    mcdm_table_name,
+    mcdm_field_name,
+    mcdm_field_value_type
+    
+  FROM
+    {{ ref('mcdm_paid_ads_basic_performance_structure') }}
+)
+
+SELECT
+*
+FROM
+  source_data;
 
 /*
     Uncomment the line below to remove records with null `id` values
