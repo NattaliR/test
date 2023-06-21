@@ -28,7 +28,7 @@ WITH source_data AS (
     mcdm_field_value_type
     
   FROM
-    {{ ref('mcdm_paid_ads_basic_performance_structure.csv') }}
+    {{ ref('seed/mcdm_paid_ads_basic_performance_structure.csv') }}
 )
 
 SELECT
